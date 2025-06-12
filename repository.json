@@ -1,7 +1,11 @@
 {
 	"Releases": [
 		{
-			"Id": "LocomotiveMapLabel",
+			"Id": "FastTravelModelName",
+			"Version": "1.0.0"
+		},
+		{
+			"Id": "MySummerTrain",
 			"Version": "1.0.0"
 		}
 	]

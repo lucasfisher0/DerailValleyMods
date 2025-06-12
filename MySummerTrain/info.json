@@ -1,0 +1,10 @@
+{
+	"Id": "MySummerTrain",
+	"Version": "1.0.0",
+	"DisplayName": "My Summer Train",
+	"Author": "lucasfisher0",
+	"EntryMethod": "MySummerTrain.Main.Load",
+	"ManagerVersion": "0.27.2",
+	"HomePage": "https://www.nexusmods.com/derailvalley/mods/#",
+	"Repository": "https://raw.githubusercontent.com/lucasfisher0/DerailValleyMods/refs/heads/master/repository.json"
+}

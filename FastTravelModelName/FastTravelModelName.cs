@@ -35,7 +35,6 @@ static class FastTravelModelName
 
     static bool Unload(ModEntry modEntry)
     {
-        modEntry.Logger.Log("Map restart still required to regenerate overview book textures.");
         Harmony harmony = new Harmony(modEntry.Info.Id);
         harmony.UnpatchAll();
 

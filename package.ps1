@@ -1,9 +1,16 @@
 param (
 	[switch]$NoArchive,
+	[string]$ModName,
 	[string]$OutputDirectory = $PSScriptRoot
 )
 
-Set-Location "$PSScriptRoot"
+$MainDir = "$PSScriptRoot" + "/" + $ModName
+if (-not (Test-Path $MainDir))
+{
+	Write-Error -Message "Could not find subdirectory, is mod name set?: $MainDir" -ErrorAction Stop
+}
+
+Set-Location "$MainDir"
 $FilesToInclude = "info.json","build/*","LICENSE"
 
 $modInfo = Get-Content -Raw -Path "info.json" | ConvertFrom-Json

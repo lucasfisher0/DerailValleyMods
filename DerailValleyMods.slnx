@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="FastTravelModelName\FastTravelModelName.csproj" />
+  <Project Path="MySummerTrain\MySummerTrain.csproj" />
 </Solution>
