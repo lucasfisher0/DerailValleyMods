@@ -9,12 +9,8 @@
 	<ItemGroup>
 		<Reference Include="Assembly-CSharp"/>
 		<Reference Include="DV.ThingTypes"/>
-    <Reference Include="DV.UI">
-			<HintPath>$(GameManaged)\DV.UI.dll</HintPath>
-		</Reference>
-    <Reference Include="DV.Localization">
-			<HintPath>$(GameManaged)\DV.Localization.dll</HintPath>
-		</Reference>
+    <Reference Include="DV.UI"/>
+    <Reference Include="DV.Localization"/>
 	</ItemGroup>
 
 	<!-- Unity -->

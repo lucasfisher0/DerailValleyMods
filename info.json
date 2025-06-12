@@ -2,9 +2,9 @@
 	"Id": "FastTravelModelName",
 	"Version": "1.0.0",
 	"DisplayName": "Fast Travel Model Name",
-	"Author": "Klewka",
+	"Author": "lucasfisher0",
 	"EntryMethod": "FastTravelModelName.FastTravelModelName.Load",
 	"ManagerVersion": "0.27.2",
-	"HomePage": "https://www.nexusmods.com/derailvalley/mods/#",
-	"Repository": "https://raw.githubusercontent.com/OWNER/REPOSITORY/main/repository.json"
+	"HomePage": "https://www.nexusmods.com/derailvalley/mods/1199",
+	"Repository": "https://raw.githubusercontent.com/lucasfisher0/FastTravelModelName/refs/heads/master/repository.json"
 }

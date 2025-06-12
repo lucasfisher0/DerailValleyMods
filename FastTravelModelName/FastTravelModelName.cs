@@ -12,7 +12,7 @@ using FastTravelData = DV.UI.FastTravelData;
 namespace FastTravelModelName;
 
 [EnableReloading]
-static class Main
+static class FastTravelModelName
 {
     public static bool Load(ModEntry modEntry)
     {
