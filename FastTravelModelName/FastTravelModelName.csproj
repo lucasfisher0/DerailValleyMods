@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<!-- Derail Valley -->
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp"/>
+		<Reference Include="DV.ThingTypes"/>
+    <Reference Include="DV.UI">
+			<HintPath>$(GameManaged)\DV.UI.dll</HintPath>
+		</Reference>
+    <Reference Include="DV.Localization">
+			<HintPath>$(GameManaged)\DV.Localization.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<!-- Unity -->
+	<ItemGroup>
+		<Reference Include="UnityEngine"/>
+		<Reference Include="UnityEngine.CoreModule"/>
+	</ItemGroup>
+
+	<!-- Mod Loader -->
+	<ItemGroup>
+		<PackageReference Include="UnityModManager" Version="0.32.4" />
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<!-- Copy to build folder -->
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="../build/"/>
+
+		<!-- Package after Release build -->
+		<Exec Condition="'$(ConfigurationName)' == 'Release' And '$(OS)' == 'Windows_NT'" Command="powershell -executionpolicy bypass -Command &quot;(../package.ps1)&quot;"/>
+		<Exec Condition="'$(ConfigurationName)' == 'Release' And '$(OS)' != 'Windows_NT'" Command="pwsh -Command &quot;(../package.ps1)&quot;"/>
+	</Target>
+</Project>
