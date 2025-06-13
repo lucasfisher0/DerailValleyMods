@@ -14,19 +14,20 @@ namespace FastTravelModelName;
 [EnableReloading]
 static class FastTravelModelName
 {
+    private static Harmony? _harmony;
+
     public static bool Load(ModEntry modEntry)
     {
-        Harmony? harmony = new Harmony(modEntry.Info.Id);
         try
         {
-            harmony = new Harmony(modEntry.Info.Id);
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
+            _harmony ??= new(modEntry.Info.Id);
+            _harmony.PatchAll(Assembly.GetExecutingAssembly());
             modEntry.Logger.Log($"{modEntry.Info.DisplayName} loaded.");
         }
         catch (Exception ex)
         {
             modEntry.Logger.LogException($"Failed to load {modEntry.Info.DisplayName}:", ex);
-            harmony?.UnpatchAll(modEntry.Info.Id);
+            _harmony!.UnpatchAll(modEntry.Info.Id);
             return false;
         }
 

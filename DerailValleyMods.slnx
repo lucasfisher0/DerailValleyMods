@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="FastTravelModelName\FastTravelModelName.csproj" />
   <Project Path="MySummerTrain\MySummerTrain.csproj" />
+  <Project Path="EnableUnityExplorer\EnableUnityExplorer.csproj" />
 </Solution>

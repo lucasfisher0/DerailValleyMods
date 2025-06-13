@@ -33,6 +33,11 @@
     <Reference Include="DVModApi"/>
 	</ItemGroup>
 
+	<Target Name="PreBuildClean" AfterTargets="BeforeBuild">
+		<!-- Delete build folder-->
+		<RemoveDir Condition="'$(ConfigurationName)' == 'Release'" Directories="build/" />
+	</Target>
+
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<!-- Copy to build folder -->
 		<Copy SourceFiles="$(TargetPath)" DestinationFolder="build/"/>

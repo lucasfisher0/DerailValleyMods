@@ -19,11 +19,11 @@ public class Settings : UnityModManager.ModSettings
 
 public class IngameSettings : DVModSettings
 {
-    public static ModSettingsSlider myTestSlider;
+    // public static ModSettingsSlider myTestSlider;
 
     public static void MyModSettings()
     {
-        myTestSlider = DVModSettings.AddSlider("myTestSlider", "This is Slider (float)", "This is float slider between 5 and 15 with default value 6.5f", 5f, 15f, 6.5f);
+        // myTestSlider = DVModSettings.AddSlider("myTestSlider", "This is Slider (float)", "This is float slider between 5 and 15 with default value 6.5f", 5f, 15f, 6.5f);
 
         //DVModSettings.AddText("");
         //DVModSettings.
