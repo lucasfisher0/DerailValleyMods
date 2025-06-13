@@ -12,12 +12,15 @@ namespace MySummerTrain;
 public static class Main
 {
 	public static Settings? settings;
+	public static ModEntry? modEntry;
 	private static Harmony? _harmony;
 
 
 	// Unity Mod Manage Wiki: https://wiki.nexusmods.com/index.php/Category:Unity_Mod_Manager
 	private static bool Load(ModEntry modEntry)
 	{
+		Main.modEntry = modEntry;
+		
 		try
 		{
 			_harmony ??= new Harmony(modEntry.Info.Id);

@@ -17,6 +17,8 @@
 		<Reference Include="DV.UserManagement"/>
 		<Reference Include="DV.UI"/>
 		<Reference Include="DV.Utils"/>
+		<Reference Include="DV.Localization"/>
+		<Reference Include="I2.Localization"/>
 		<Reference Include="Newtonsoft.Json"/>
 	</ItemGroup>
 
@@ -40,10 +42,17 @@
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<!-- Copy to build folder -->
+		 <ItemGroup>
+			<AssetSource Include="assets\**" />
+			<AssetDestination Include="@(AssetSource->'build\assets\%(RecursiveDir)%(Filename)%(Extension)')" />
+		</ItemGroup>
 		<Copy SourceFiles="$(TargetPath)" DestinationFolder="build/"/>
+		<Copy SourceFiles="@(AssetSource)"
+			DestinationFiles="@(AssetDestination)"
+			SkipUnchangedFiles="true" /> 
 
 		<!-- Package after Release build -->
-		<Exec Condition="'$(ConfigurationName)' == 'Release' And '$(OS)' == 'Windows_NT'" Command="powershell -executionpolicy bypass -Command &quot;(../package.ps1 -ModName MySummerTrain)&quot;"/>
-		<Exec Condition="'$(ConfigurationName)' == 'Release' And '$(OS)' != 'Windows_NT'" Command="pwsh -Command &quot;(../package.ps1 -ModName MySummerTrain)&quot;"/>
+		<Exec Condition="'$(ConfigurationName)' == 'Release' And '$(OS)' == 'Windows_NT'" Command="powershell -executionpolicy bypass -Command &quot;(../package.ps1 -ModName $(ProjectName))&quot;"/>
+		<Exec Condition="'$(ConfigurationName)' == 'Release' And '$(OS)' != 'Windows_NT'" Command="pwsh -Command &quot;(../package.ps1 -ModName $(ProjectName))&quot;"/>
 	</Target>
 </Project>

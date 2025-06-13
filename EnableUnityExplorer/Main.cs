@@ -12,21 +12,19 @@ namespace EnableUnityExplorer;
 static class Main
 {
     private static ModEntry? _modEntry;
-    private static string _modPrefix = string.Empty;
 
     public static bool Load(ModEntry modEntry)
     {
         _modEntry = modEntry;
-        _modPrefix = $"[{modEntry.Info.DisplayName}]:";
 
         try
         {
             ExplorerStandalone.CreateInstance(LogHandler);
-            modEntry.Logger.Log($"{_modPrefix} loaded.");
+            modEntry.Logger.Log($"Loaded.");
         }
         catch (Exception ex)
         {
-            modEntry.Logger.LogException($"{_modPrefix} Failed to load:", ex);
+            modEntry.Logger.LogException($"Failed to load: ", ex);
             return false;
         }
 
@@ -40,14 +38,14 @@ static class Main
             case LogType.Error:
             case LogType.Assert:
             case LogType.Exception:
-                _modEntry!.Logger.Error($"{_modPrefix} {message}");
+                _modEntry!.Logger.Error(message);
                 break;
             case LogType.Warning:
-                _modEntry!.Logger.Warning($"{_modPrefix} {message}");
+                _modEntry!.Logger.Warning(message);
                 break;
             case LogType.Log:
             default:
-                _modEntry!.Logger.Log($"{_modPrefix} {message}");
+                _modEntry!.Logger.Log(message);
                 break;
         }
     }

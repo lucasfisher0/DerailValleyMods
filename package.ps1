@@ -11,7 +11,7 @@ if (-not (Test-Path $MainDir))
 }
 
 Set-Location "$MainDir"
-$FilesToInclude = "info.json","build/*","LICENSE"
+$FilesToInclude = "info.json","build/*"
 
 $modInfo = Get-Content -Raw -Path "info.json" | ConvertFrom-Json
 $modId = $modInfo.Id
@@ -26,7 +26,7 @@ if ($NoArchive) {
 $ZipOutDir = "$ZipWorkDir/$modId"
 
 New-Item "$ZipOutDir" -ItemType Directory -Force
-Copy-Item -Force -Path $FilesToInclude -Destination "$ZipOutDir"
+Copy-Item -Force -Path $FilesToInclude -Destination "$ZipOutDir" -Recurse -Container
 
 if (!$NoArchive)
 {
