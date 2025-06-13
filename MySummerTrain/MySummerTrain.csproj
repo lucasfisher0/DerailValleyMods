@@ -11,13 +11,17 @@
 	<!-- Derail Valley -->
 	<ItemGroup>
 		<Reference Include="Assembly-CSharp"/>
+		<Reference Include="DV.CabControls.Spec"/>
+		<Reference Include="DV.CharacterController"/>
 		<Reference Include="DV.Common"/>
+		<Reference Include="DV.Interaction"/>
 		<Reference Include="DV.RailTrack"/>
 		<Reference Include="DV.ThingTypes"/>
 		<Reference Include="DV.UserManagement"/>
 		<Reference Include="DV.UI"/>
 		<Reference Include="DV.Utils"/>
 		<Reference Include="DV.Localization"/>
+		<Reference Include="DV.WeatherSystem"/>
 		<Reference Include="I2.Localization"/>
 		<Reference Include="Newtonsoft.Json"/>
 	</ItemGroup>

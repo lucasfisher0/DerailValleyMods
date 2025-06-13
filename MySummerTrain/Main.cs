@@ -34,7 +34,7 @@ public static class Main
 		catch (Exception ex)
 		{
 			modEntry.Logger.LogException($"Failed to load {modEntry.Info.DisplayName}:", ex);
-			_harmony!.UnpatchAll(modEntry.Info.Id);
+			_harmony?.UnpatchAll(modEntry.Info.Id);
 			return false;
 		}
 
@@ -53,7 +53,7 @@ public static class Main
 
 	static void OnSaveGUI(ModEntry modEntry)
 	{
-		settings!.Save(modEntry);
+		settings?.Save(modEntry);
 	}
 
 	private static void OnGameLoad()
