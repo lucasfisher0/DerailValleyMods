@@ -1,0 +1,1 @@
+For testing compiled asset bundles.

@@ -16,8 +16,8 @@ public static class ManualDataLoader_Patch
 {
     static void Postfix(ref ManualDisplayData __result)
     {
-        var modDirectory = Main.modEntry?.Path;
-        Main.modEntry?.Logger.Log($"Looking for manual files: {modDirectory}");
+        var modDirectory = Main.mod.Path;
+        Main.mod.Logger.Log($"Looking for manual files: {modDirectory}");
         if (string.IsNullOrWhiteSpace(modDirectory))
             return;
 
@@ -33,7 +33,7 @@ public static class ManualDataLoader_Patch
         {
             try
             {
-                Main.modEntry?.Logger.Log($"Loading custom manual file: {manualFile}");
+                Main.mod.Logger.Log($"Loading custom manual file: {manualFile}");
                 var manualDir = Directory.GetParent(manualFile);
                 ManualMetadata manualMetadata = ManualMetadata.FromJson(File.ReadAllText(manualFile));
 
@@ -44,7 +44,7 @@ public static class ManualDataLoader_Patch
 
                 if (!File.Exists(Path.Combine(manualDir.FullName, "en") + ".json"))
                 {
-                    Main.modEntry?.Logger.Warning($"Could not find English strings! Skipping manual...");
+                    Main.mod.Logger.Warning($"Could not find English strings! Skipping manual...");
                     continue;
                 }
 
@@ -67,17 +67,17 @@ public static class ManualDataLoader_Patch
 
                 // Add manual to root
                 var copyDataMethod = typeof(ManualDisplayData).GetMethod("CopyDataToTreeNodes", BindingFlags.NonPublic | BindingFlags.Instance);
-                copyDataMethod.Invoke(__result, [manualMetadata.tree, __result.root, manualStrings, fallbackStrings]);
+                copyDataMethod!.Invoke(__result, [manualMetadata.tree, __result.root, manualStrings, fallbackStrings]);
                 __result.root.children.Add(manualMetadata.tree);
 
                 var prevNextMethod = typeof(ManualDisplayData).GetMethod("CalculatePreviousNext", BindingFlags.NonPublic | BindingFlags.Instance);
-                prevNextMethod.Invoke(__result, [__result.root]);
+                prevNextMethod!.Invoke(__result, [__result.root]);
 
-                Main.modEntry?.Logger.Log($"Manual {manualFile} successfully added.");
+                Main.mod.Logger.Log($"Manual {manualFile} successfully added.");
             }
             catch (Exception ex)
             {
-                Main.modEntry?.Logger.LogException($"Error adding manual {manualFile}:", ex);
+                Main.mod.Logger.LogException($"Error adding manual {manualFile}:", ex);
                 continue;
             }
         }

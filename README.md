@@ -3,6 +3,9 @@
 <!--
 https://github.com/piotrulos/DVModAPI/wiki
 https://github.com/newman55/unity-mod-manager/wiki/How-to-create-a-mod-for-unity-game
+https://github.com/newman55/unity-mod-manager
+https://github.com/pardeike/Harmony/wiki/Utilities
+https://docs.reactor.gg/guides/harmony_guide
 -->
 
 <!-- PROJECT TITLE -->
@@ -24,6 +27,8 @@ WIP.
 ### Enable Unity Explorer
 
 Based off [bdlm-dev's mod](dredge-mods-url) of the same type. Loads Unity Explorer through a method compatible with Unity Mod Manager, allowing easy use in Derail Valley. This also uses [bdlm-dev's fork of Unity Explorer](ue-fork-url), compiled using HarmonyLib instead of HarmonyX.
+
+This currently needs a patch to fix mouse input, as currently no mouse interactions are functional.
 
 ## License
 

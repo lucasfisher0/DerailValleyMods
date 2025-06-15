@@ -1,6 +1,12 @@
 # Local reference configuration
 Directory.Build.targets
 
+# 3rd party mods
+./BetterModUI/
+./dv-mapify/
+./DVModAPI/
+
+
 # Local preferences
 .vscode/
 

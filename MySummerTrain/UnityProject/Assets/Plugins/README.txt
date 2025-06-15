@@ -1,0 +1,1 @@
+This directory exists to receive builds from the VS "Shared" project
